@@ -9,25 +9,33 @@ document.addEventListener('DOMContentLoaded', () => {
 function llogaritPiket() {
 
     // =========================
-    // MATURA (Max 30 pikë)
+    // MATURA
     // =========================
     const maturaInput = document.getElementById('matura-sakta');
-    const maturaSakta = parseFloat(maturaInput.value);
+    const maturaValue = maturaInput.value.trim();
+
+    if (maturaValue === "") {
+        alert("Fusha 'Pyetje të sakta (Matura)' nuk mund të jetë bosh.");
+        maturaInput.focus();
+        return;
+    }
+
+    const maturaSakta = parseFloat(maturaValue);
 
     if (isNaN(maturaSakta)) {
-        alert("Ju lutem shkruani numrin e pyetjeve të sakta në Maturë.");
+        alert("Ju lutem shkruani një numër të vlefshëm për Maturën.");
         return;
     }
 
     if (maturaSakta < 0 || maturaSakta > 100) {
-        alert("Matura duhet të jetë mes 0 dhe 100.");
+        alert("Matura duhet të jetë midis 0 dhe 100.");
         return;
     }
 
     const piketMatura = maturaSakta * 0.3;
 
     // =========================
-    // SUKSESI (Max 30 pikë)
+    // SUKSESI
     // =========================
     const klasa10 = document.getElementById('klasa10').value;
     const klasa11 = document.getElementById('klasa11').value;
@@ -38,35 +46,56 @@ function llogaritPiket() {
         return;
     }
 
-    const p10 = parseFloat(klasa10);
-    const p11 = parseFloat(klasa11);
-    const p12 = parseFloat(klasa12);
-
-    const piketSuksesi = p10 + p11 + p12;
+    const piketSuksesi =
+        parseFloat(klasa10) +
+        parseFloat(klasa11) +
+        parseFloat(klasa12);
 
     // =========================
-    // PROVIMI PRANUES (Max 40)
+    // PROVIMI PRANUES
     // =========================
-    const pranuesSakta =
-        parseFloat(document.getElementById('pranues-sakta').value) || 0;
+    const pranuesSaktaInput = document.getElementById('pranues-sakta');
+    const pranuesGabimInput = document.getElementById('pranues-gabim');
 
+    const pranuesSaktaVal = pranuesSaktaInput.value.trim();
+    const pranuesGabimVal = pranuesGabimInput.value.trim();
+
+    // ONLY sakta is required
+    if (pranuesSaktaVal === "") {
+        alert("Fusha 'Pyetje të sakta (Provimi Pranues)' nuk mund të jetë bosh.");
+        pranuesSaktaInput.focus();
+        return;
+    }
+
+    const pranuesSakta = parseFloat(pranuesSaktaVal);
+
+    // gabim mund të jetë bosh → 0
     const pranuesGabim =
-        parseFloat(document.getElementById('pranues-gabim').value) || 0;
+        pranuesGabimVal === "" ? 0 : parseFloat(pranuesGabimVal);
 
-    const pranuesSaktaSaktesuar = Math.min(Math.max(pranuesSakta, 0), 50);
-    const pranuesGabimSaktesuar = Math.min(Math.max(pranuesGabim, 0), 50);
+    if (isNaN(pranuesSakta) || isNaN(pranuesGabim)) {
+        alert("Ju lutem shkruani numra të vlefshëm në Provimin Pranues.");
+        return;
+    }
 
-    if (pranuesSaktaSaktesuar + pranuesGabimSaktesuar > 50) {
-        alert("Numri i pyetjeve të sakta dhe gabim nuk mund të jetë më i madh se 50.");
+    if (
+        pranuesSakta < 0 || pranuesSakta > 50 ||
+        pranuesGabim < 0 || pranuesGabim > 50
+    ) {
+        alert("Vlerat duhet të jenë midis 0 dhe 50.");
+        return;
+    }
+
+    if (pranuesSakta + pranuesGabim > 50) {
+        alert("Numri total i pyetjeve nuk mund të jetë më i madh se 50.");
         return;
     }
 
     let piketPranues =
-        (pranuesSaktaSaktesuar * 0.8) -
-        (pranuesGabimSaktesuar * 0.26);
+        (pranuesSakta * 0.8) -
+        (pranuesGabim * 0.26);
 
-    piketPranues = Math.max(0, piketPranues);
-    piketPranues = Math.min(40, piketPranues);
+    piketPranues = Math.max(0, Math.min(40, piketPranues));
 
     // =========================
     // TOTALI
@@ -77,17 +106,17 @@ function llogaritPiket() {
         piketPranues;
 
     // =========================
-    // SHFAQ REZULTATIN
+    // OUTPUT
     // =========================
     document.getElementById('total-points').textContent =
         totali.toFixed(2);
 
     document.getElementById('detailed-breakdown').innerHTML = `
         <strong>Detajet e llogaritjes:</strong><br>
-        • Pikët nga Matura: <strong>${piketMatura.toFixed(2)}</strong> / 30.00<br>
-        • Pikët nga Suksesi: <strong>${piketSuksesi.toFixed(2)}</strong> / 30.00<br>
-        • Pikët nga Provimi Pranues: <strong>${piketPranues.toFixed(2)}</strong> / 40.00<br><br>
-        <strong>Totali: ${totali.toFixed(2)} / 100.00</strong>
+        • Matura: <strong>${piketMatura.toFixed(2)}</strong> / 30<br>
+        • Suksesi: <strong>${piketSuksesi.toFixed(2)}</strong> / 30<br>
+        • Provimi Pranues: <strong>${piketPranues.toFixed(2)}</strong> / 40<br><br>
+        <strong>Total: ${totali.toFixed(2)} / 100</strong>
     `;
 
     const resultBox = document.getElementById('result-box');

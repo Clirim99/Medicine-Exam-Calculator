@@ -156,3 +156,11 @@ button:active {
     padding-top: 10px;
     line-height: 1.5;
 }
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    font-size: 14px;
+    color: #666;
+}

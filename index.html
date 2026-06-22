@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulatori i Pikëve për Mjekësi</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="logo-wrapper">
+        <img src="assets/images/BrightFuture.jpg" alt="Medicine Test Calculator Logo" class="app-logo">
+    </div>
+    
+    <h2>Kalkulatori i Pikëve - Mjekësi</h2>
+    
+    <div class="section">
+        <h3>1. Provimi i Maturës (Max 30 pikë)</h3>
+        <div class="form-group">
+            <label for="matura-sakta">Numri i pyetjeve të sakta (0 - 100):</label>
+            <input type="number" id="matura-sakta" min="0" max="100" placeholder="Psh. 85">
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>2. Suksesi nga Shkolla e Mesme (Max 30 pikë)</h3>
+        <p class="section-note">Zgjidhni suksesin për secilën klasë:</p>
+        <div class="form-group">
+            <label for="klasa10">Klasa 10:</label>
+            <select id="klasa10">
+                <option value="10">Mesatarja mbi 4.5 (10 pikë)</option>
+                <option value="8">Mesatarja 3.5 - 4.4 (8 pikë)</option>
+                <option value="0">Nën 3.5 (0 pikë)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="klasa11">Klasa 11:</label>
+            <select id="klasa11">
+                <option value="10">Mesatarja mbi 4.5 (10 pikë)</option>
+                <option value="8">Mesatarja 3.5 - 4.4 (8 pikë)</option>
+                <option value="0">Nën 3.5 (0 pikë)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="klasa12">Klasa 12:</label>
+            <select id="klasa12">
+                <option value="10">Mesatarja mbi 4.5 (10 pikë)</option>
+                <option value="8">Mesatarja 3.5 - 4.4 (8 pikë)</option>
+                <option value="0">Nën 3.5 (0 pikë)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>3. Provimi Pranues (Max 40 pikë)</h3>
+        <div class="form-group">
+            <label for="pranues-sakta">Pyetje të sakta (0 - 50):</label>
+            <input type="number" id="pranues-sakta" min="0" max="50" placeholder="Psh. 45">
+        </div>
+        <div class="form-group">
+            <label for="pranues-gabim">Pyetje gabim (0 - 50):</label>
+            <input type="number" id="pranues-gabim" min="0" max="50" placeholder="Psh. 5">
+        </div>
+    </div>
+
+    <button id="calculate-btn">Llogarit Pikët Totale</button>
+
+    <div id="result-box">
+        Gjithsej Pikë:
+        <span id="total-points">0.00</span>
+        <div class="details" id="detailed-breakdown"></div>
+    </div>
+</div>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>

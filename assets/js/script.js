@@ -1,26 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
     const calculateBtn = document.getElementById('calculate-btn');
+    const clearBtn = document.getElementById('clear-btn');
 
     if (calculateBtn) {
         calculateBtn.addEventListener('click', llogaritPiket);
     }
 
+    // Logjika për pastrimin e të dhënave
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            document.getElementById('matura-sakta').value = '';
+            document.getElementById('klasa10').value = '';
+            document.getElementById('klasa11').value = '';
+            document.getElementById('klasa12').value = '';
+            document.getElementById('pranues-sakta').value = '';
+            document.getElementById('pranues-gabim').value = '';
+            
+            const resultBox = document.getElementById('result-box');
+            if (resultBox) {
+                resultBox.style.display = 'none';
+            }
+        });
+    }
+
     // ========================================================
-    // LOGJIKA PËR SHFAQJEN DHE FSHEHJEN E TABELAVE TË PRAGJEVE (E përshtatur për Safari)
+    // LOGJIKA PËR SHFAQJEN DHE FSHEHJEN E TABELAVE TË PRAGJEVE
     // ========================================================
     const toggleBtn = document.getElementById('toggle-tables-btn');
     const tablesSection = document.getElementById('tables-section');
 
     if (toggleBtn && tablesSection) {
         toggleBtn.addEventListener('click', () => {
-            // bëjmë toggle klasën .hidden
             tablesSection.classList.toggle('hidden');
             
-            // Kontrollojmë nëse klasa ekziston aktualisht për të ndryshuar tekstin e butonit
             if (tablesSection.classList.contains('hidden')) {
-                toggleBtn.textContent = 'Shfaq Pragjet Ndër Vite';
+                toggleBtn.innerHTML = '<span class="btn-icon">📈</span> Shiko Pragjet e Vitëve të Mëparshëm';
             } else {
-                toggleBtn.textContent = 'Fshih Pragjet Ndër Vite';
+                toggleBtn.innerHTML = '<span class="btn-icon">📉</span> Fshih Pragjet e Vitëve të Mëparshëm';
             }
         });
     }
@@ -80,7 +96,6 @@ function llogaritPiket() {
     const pranuesSaktaVal = pranuesSaktaInput.value.trim();
     const pranuesGabimVal = pranuesGabimInput.value.trim();
 
-    // ONLY sakta is required
     if (pranuesSaktaVal === "") {
         alert("Fusha 'Pyetje të sakta (Provimi Pranues)' nuk mund të jetë bosh.");
         pranuesSaktaInput.focus();
@@ -88,10 +103,7 @@ function llogaritPiket() {
     }
 
     const pranuesSakta = parseFloat(pranuesSaktaVal);
-
-    // gabim mund të jetë bosh → 0
-    const pranuesGabim =
-        pranuesGabimVal === "" ? 0 : parseFloat(pranuesGabimVal);
+    const pranuesGabim = pranuesGabimVal === "" ? 0 : parseFloat(pranuesGabimVal);
 
     if (isNaN(pranuesSakta) || isNaN(pranuesGabim)) {
         alert("Ju lutem shkruani numra të vlefshëm në Provimin Pranues.");

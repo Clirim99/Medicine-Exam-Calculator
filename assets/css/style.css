@@ -1,10 +1,11 @@
 :root {
-    --primary: #0077b6;
+    --primary: #0076c0; /* Kaltër mbretërore sipas butonit kryesor */
     --secondary: #00b4d8;
     --dark: #2b2d42;
     --light: #f8f9fa;
     --success-bg: #d4edda;
     --success-text: #155724;
+    --border-color: #d9e2ec;
 }
 
 * {
@@ -28,7 +29,6 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Stilimi i Logos */
 .logo-wrapper {
     text-align: center;
     margin-bottom: 15px;
@@ -38,7 +38,7 @@ body {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    border-radius: 50%; /* E bën logon rrethore */
+    border-radius: 50%;
     border: 3px solid var(--secondary);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -107,7 +107,8 @@ input:focus, select:focus {
     border-color: var(--primary);
 }
 
-button {
+/* Stilimet e Reja të Butonave */
+.btn-primary {
     width: 100%;
     background-color: var(--primary);
     color: white;
@@ -115,17 +116,143 @@ button {
     padding: 14px;
     font-size: 1.1rem;
     font-weight: bold;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
+    margin-bottom: 12px;
     transition: background 0.2s, transform 0.1s;
 }
 
-button:hover {
-    background-color: #0056b3;
+.btn-primary:hover {
+    background-color: #005f9e;
 }
 
-button:active {
-    transform: scale(0.98);
+.btn-secondary {
+    width: 100%;
+    background-color: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #f0f7ff;
+}
+
+.btn-outline {
+    width: 100%;
+    background-color: white;
+    color: var(--primary);
+    border: 2px solid var(--border-color);
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.btn-icon {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+/* Klasa për menaxhimin e fshehjes */
+.hidden {
+    display: none !important;
+}
+
+/* Stilimi i ri i tabelave */
+.table-container {
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+.table-header-title {
+    color: #0c2340;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.table-header-subtitle {
+    color: #627d98;
+    font-size: 0.95rem;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.custom-data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.custom-data-table thead tr {
+    background-color: #0b4f9c; /* Ngjyra e kaltër e mbyllur nga koka e tabelës */
+    color: white;
+}
+
+.custom-data-table th {
+    padding: 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.custom-data-table th:first-child, 
+.custom-data-table td:first-child {
+    border-right: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.custom-data-table td {
+    padding: 14px;
+    text-align: center;
+    font-size: 1rem;
+    border-bottom: 1px solid #edf2f7;
+    background-color: white;
+}
+
+.custom-data-table tbody tr:nth-child(even) td {
+    background-color: #f8fafc;
+}
+
+.custom-data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.year-cell {
+    font-weight: 700;
+    color: #102a43;
+}
+
+.points-cell {
+    font-weight: 700;
+    color: #0052cc;
 }
 
 #result-box {

@@ -6,19 +6,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ========================================================
-    // LOGJIKA PËR SHFAQJEN DHE FSHEHJEN E TABELAVE TË PRAGJEVE
+    // LOGJIKA PËR SHFAQJEN DHE FSHEHJEN E TABELAVE TË PRAGJEVE (E përshtatur për Safari)
     // ========================================================
     const toggleBtn = document.getElementById('toggle-tables-btn');
     const tablesSection = document.getElementById('tables-section');
 
     if (toggleBtn && tablesSection) {
         toggleBtn.addEventListener('click', () => {
-            if (tablesSection.style.display === 'none' || tablesSection.style.display === '') {
-                tablesSection.style.display = 'block';
-                toggleBtn.textContent = 'Fshih Pragjet Ndër Vite';
-            } else {
-                tablesSection.style.display = 'none';
+            // bëjmë toggle klasën .hidden
+            tablesSection.classList.toggle('hidden');
+            
+            // Kontrollojmë nëse klasa ekziston aktualisht për të ndryshuar tekstin e butonit
+            if (tablesSection.classList.contains('hidden')) {
                 toggleBtn.textContent = 'Shfaq Pragjet Ndër Vite';
+            } else {
+                toggleBtn.textContent = 'Fshih Pragjet Ndër Vite';
             }
         });
     }

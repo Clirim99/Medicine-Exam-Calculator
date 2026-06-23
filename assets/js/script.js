@@ -4,6 +4,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (calculateBtn) {
         calculateBtn.addEventListener('click', llogaritPiket);
     }
+
+    // ========================================================
+    // LOGJIKA PËR SHFAQJEN DHE FSHEHJEN E TABELAVE TË PRAGJEVE
+    // ========================================================
+    const toggleBtn = document.getElementById('toggle-tables-btn');
+    const tablesSection = document.getElementById('tables-section');
+
+    if (toggleBtn && tablesSection) {
+        toggleBtn.addEventListener('click', () => {
+            if (tablesSection.style.display === 'none' || tablesSection.style.display === '') {
+                tablesSection.style.display = 'block';
+                toggleBtn.textContent = 'Fshih Pragjet Ndër Vite';
+            } else {
+                tablesSection.style.display = 'none';
+                toggleBtn.textContent = 'Shfaq Pragjet Ndër Vite';
+            }
+        });
+    }
 });
 
 function llogaritPiket() {

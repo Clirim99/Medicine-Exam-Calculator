@@ -119,36 +119,70 @@
         <div class="details" id="detailed-breakdown"></div>
     </div>
 
-    <!-- Seksioni i ri me tabelën e të dhënave statike -->
-    <div class="section">
-        <h3>Të pranuarit e fundit në mjekësi ndër vite</h3>
-        <table class="data-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+    <button id="toggle-tables-btn" style="background-color: #334e68; margin-top: 15px;">Shfaq Pragjet Ndër Vite</button>
+
+    <div id="tables-section" class="section" style="display: none; text-align: center;">
+        
+        <h3 style="text-align: left;">Të pranuarit e fundit në Mjekësi të Përgjithshme ndër vite</h3>
+        <table class="data-table" style="width: 50%; min-width: 280px; border-collapse: collapse; margin: 10px auto 25px auto;">
             <thead>
                 <tr style="background-color: #0b2240; color: #ffffff; text-align: left;">
-                    <th style="padding: 10px; border: 1px solid #ddd;">VITI</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">PRAGU</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">VITI</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">PRAGU</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">2025</td>
-                    <td style="padding: 10px; border: 1px solid #ddd; color: #334e68; font-weight: bold;">79.74</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; text-align: left;">2025</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; color: #334e68; font-weight: bold; text-align: left;">79.74</td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">2024</td>
-                    <td style="padding: 10px; border: 1px solid #ddd; color: #334e68; font-weight: bold;">78.56</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; text-align: left;">2024</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; color: #334e68; font-weight: bold; text-align: left;">78.56</td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">2023</td>
-                    <td style="padding: 10px; border: 1px solid #ddd; color: #334e68; font-weight: bold;">78.90</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; text-align: left;">2023</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; color: #334e68; font-weight: bold; text-align: left;">78.90</td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">2022</td>
-                    <td style="padding: 10px; border: 1px solid #ddd; color: #334e68; font-weight: bold;">78.94</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; text-align: left;">2022</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; color: #334e68; font-weight: bold; text-align: left;">78.94</td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd; font-weight: bold;">2021</td>
-                    <td style="padding: 10px; border: 1px solid #ddd; color: #334e68; font-weight: bold;">80.62</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; text-align: left;">2021</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; color: #334e68; font-weight: bold; text-align: left;">80.62</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="text-align: left;">Të pranuarit e fundit në Stomatologji ndër vite</h3>
+        <table class="data-table" style="width: 50%; min-width: 280px; border-collapse: collapse; margin: 10px auto 10px auto;">
+            <thead>
+                <tr style="background-color: #0b2240; color: #ffffff; text-align: left;">
+                    <th style="padding: 8px; border: 1px solid #ddd;">VITI</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">PRAGU</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; text-align: left;">2025</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; color: #334e68; font-weight: bold; text-align: left;">73.36</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; text-align: left;">2024</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; color: #334e68; font-weight: bold; text-align: left;">73.06</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; text-align: left;">2023</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; color: #334e68; font-weight: bold; text-align: left;">70.42</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; text-align: left;">2022</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; color: #334e68; font-weight: bold; text-align: left;">70.74</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; text-align: left;">2021</td>
+                    <td style="padding: 8px; border: 1px solid #ddd; color: #334e68; font-weight: bold; text-align: left;">71.62</td>
                 </tr>
             </tbody>
         </table>

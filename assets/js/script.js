@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (tablesSection.classList.contains('hidden')) {
                 toggleBtn.innerHTML = '<span class="btn-icon">📈</span> Shiko Pragjet e Vitëve të Mëparshëm';
             } else {
-                toggleBtn.innerHTML = '<span class="btn-icon">📉</span> Fshih Pragjet e Vitëve të Mëparshëm';
+                toggleBtn.innerHTML = '<span class="btn-icon">📉</span> Fshih pikët minimale të pranimit ndër vite';
             }
         });
     }
